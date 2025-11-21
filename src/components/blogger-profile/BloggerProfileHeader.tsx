@@ -30,6 +30,7 @@ export const BloggerProfileHeader = ({
             <SafeAvatar
               src={blogger.avatar}
               alt={blogger.name}
+              id={blogger.id}
               className="w-32 h-32 border-4 border-border-light mx-auto md:mx-0 aspect-square"
               username={normalizeUsername(blogger.handle)}
               gender={blogger.gender}

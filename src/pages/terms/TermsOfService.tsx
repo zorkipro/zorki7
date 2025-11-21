@@ -1,5 +1,5 @@
-import { Header } from "@/components/layout/Header";
-import SEOHead from "@/components/SEO/SEOHead";
+import { Header } from "@/components/layout/Header.tsx";
+import SEOHead from "@/components/SEO/SEOHead.tsx";
 import { Button } from "@/ui-kit";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";

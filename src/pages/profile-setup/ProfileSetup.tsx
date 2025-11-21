@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/ui-kit";
 import { Input } from "@/ui-kit";
-import { useAuth } from "@/contexts/AuthContext";
-import { linkClientToBlogger } from "@/api/endpoints/client";
-import { APIError } from "@/api/client";
-import { getAccessToken } from "@/utils/googleAuth";
+import { useAuth } from "@/contexts/AuthContext.tsx";
+import { linkClientToBlogger } from "@/api/endpoints/client.ts";
+import { APIError } from "@/api/client.ts";
+import { getAccessToken } from "@/utils/googleAuth.ts";
 import { LogOut } from "lucide-react";
-import { logger } from "@/utils/logger";
+import { logger } from "@/utils/logger.ts";
 
-export const ProfileSetup = () => {
+const ProfileSetup = () => {
   const navigate = useNavigate();
   const { user, signOut, refreshBloggerInfo } = useAuth();
   const [instagramUsername, setInstagramUsername] = useState("");
@@ -178,3 +178,5 @@ export const ProfileSetup = () => {
     </div>
   );
 };
+
+export default ProfileSetup;

@@ -9,7 +9,7 @@ import {
 } from "@/ui-kit";
 import { Mail, CheckCircle, ArrowLeft } from "lucide-react";
 
-export const EmailConfirmation = () => {
+const EmailConfirmation = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle flex flex-col">
       {/* Header */}
@@ -98,3 +98,5 @@ export const EmailConfirmation = () => {
     </div>
   );
 };
+
+export default EmailConfirmation;

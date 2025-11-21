@@ -150,6 +150,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = React.memo(
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 flex-1 w-full">
               {/* Avatar */}
               <SafeAvatar
+                  id={profile.id}
                 src={avatarUrl}
                 alt={displayName}
                 className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 border-4 border-border-light aspect-square shrink-0"

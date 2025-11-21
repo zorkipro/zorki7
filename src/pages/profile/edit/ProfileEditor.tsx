@@ -22,7 +22,7 @@ import { useProfileEditor } from "@/hooks/profile/useProfileEditor";
 import { useScreenshotManager } from "@/hooks/profile/useScreenshotManager";
 import { formatNumber } from "@/utils/formatters";
 
-export const ProfileEditor = () => {
+const ProfileEditor = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ export const ProfileEditor = () => {
   } = useProfileEditor();
 
   const platform = activeTab === "settings" ? "instagram" : activeTab;
-  
+
   const handleScreenshotsUpdate = useCallback(
     (platform: string, screenshots: any[]) => {
       setAvailablePlatforms((prev) => ({
@@ -182,3 +182,5 @@ export const ProfileEditor = () => {
     </div>
   );
 };
+
+export default ProfileEditor;

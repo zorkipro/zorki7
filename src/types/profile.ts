@@ -87,6 +87,10 @@ export type InfluencerProfile = {
 export type InfluencerProfileInsert = Partial<InfluencerProfile>;
 export type InfluencerProfileUpdate = Partial<InfluencerProfile>;
 
+
+export type Work_format_Type = "ИП" | "профдоход" | "договор подряда" | "ООО" | "";
+type Gender_Type = "мужчина" | "женщина" | "пара" | "паблик" | "";
+
 // Extended edit data interface for ProfileEditor
 export interface EditData {
   // Basic profile fields (соответствуют таблице influencers)
@@ -96,8 +100,8 @@ export interface EditData {
   barter_available: boolean;
   mart_registry: boolean;
   contact_link: string;
-  work_format: "ИП" | "профдоход" | "договор подряда" | "ООО" | "";
-  gender_type: "мужчина" | "женщина" | "пара" | "паблик" | "";
+  work_format: Work_format_Type;
+  gender_type: Gender_Type;
   cooperation_conditions: string;
 
   // Instagram platform fields (соответствуют таблице influencer_platform_stats)

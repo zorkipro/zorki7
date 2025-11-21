@@ -13,7 +13,7 @@ import {
   ErrorAlert,
   CenteredAuthLayout,
 } from "@/ui-kit/components";
-import { useAuthForm } from "@/hooks/useAuthForm";
+import { useAuthForm } from "@/hooks/useAuthForm.ts";
 import { Link } from "react-router-dom";
 
 export const AuthPage = () => {

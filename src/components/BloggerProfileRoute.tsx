@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { LoadingSpinner } from "@/ui-kit/components";
-import { BloggerProfile } from "@/pages/BloggerProfile";
+import BloggerProfile from "@/pages/[username]/BloggerProfile.tsx";
+import NotFound from "@/pages/system/not-found/NotFound.tsx";
 
-const NotFound = lazy(() => import("@/pages/NotFound"));
+// const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const RESERVED_PATHS = new Set([
   "a", "api", "admin", "login", "register", "dashboard", "profile",

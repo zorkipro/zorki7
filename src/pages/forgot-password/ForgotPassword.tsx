@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client.ts";
 import { Button } from "@/ui-kit";
 import { Label } from "@/ui-kit";
 import {
@@ -17,7 +17,7 @@ import {
   ErrorAlert,
 } from "@/ui-kit/components";
 
-export const ForgotPassword = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -147,3 +147,5 @@ export const ForgotPassword = () => {
     </CenteredAuthLayout>
   );
 };
+
+export default ForgotPassword;

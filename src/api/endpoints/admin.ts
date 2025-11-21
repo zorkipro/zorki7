@@ -30,7 +30,7 @@ import type {
   GetIgSessionsParams,
   IgSessionsResponse,
   BloggerLinkMediaTgRequestInputDto,
-  BloggerLinkMediaYtRequestInputDto,
+  BloggerLinkMediaYtRequestInputDto, AdminGetBloggerOutputDto,
 } from "../types";
 
 export async function adminLogin(data: AdminLoginInputDto): Promise<AdminLoginOutputDto> {
@@ -346,6 +346,7 @@ export async function loginIgAccount(username: string, password: string): Promis
   return apiRequest<IgClientLoginOutputDto>("/ig-client/login", {
     method: "POST",
     body: JSON.stringify({ username, password } as IgClientLoginInputDto),
+    skipAuthErrorHandling: true
   });
 }
 

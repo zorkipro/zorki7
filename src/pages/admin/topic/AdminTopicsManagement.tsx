@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Input, Label, Switch, Tabs, TabsContent, TabsList, TabsTrigger, Card, CardContent, CardHeader, CardTitle, Badge, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/ui-kit";
 import { Loader2, Plus, Edit, Trash2, Calendar } from "lucide-react";
-import { useAdminTopics } from "@/hooks/admin/useAdminTopics";
-import { AdminHeader } from "@/components/admin/AdminHeader";
-import type { TopicsOutputDto } from "@/api/types";
-import { toast } from "@/hooks/use-toast";
+import { useAdminTopics } from "@/hooks/admin/useAdminTopics.ts";
+import { AdminHeader } from "@/components/admin/AdminHeader.tsx";
+import type { TopicsOutputDto } from "@/api/types.ts";
+import { toast } from "@/hooks/use-toast.ts";
 
 const INITIAL_FORM_DATA = { name: "", isRestricted: false };
 

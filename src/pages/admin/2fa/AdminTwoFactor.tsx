@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, Label } from "@/ui-kit";
 import { Shield, ArrowLeft, Clock } from "lucide-react";
-import { adminConfirm2FA } from "@/api/endpoints/admin";
-import { APIError } from "@/api/client";
+import { adminConfirm2FA } from "@/api/endpoints/admin.ts";
+import { APIError } from "@/api/client.ts";
 
 const AdminTwoFactor = () => {
   const navigate = useNavigate();

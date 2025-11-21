@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, Label } from "@/ui-kit";
-import { adminLogin } from "@/api/endpoints/admin";
-import { APIError } from "@/api/client";
+import { adminLogin } from "@/api/endpoints/admin.ts";
+import { APIError } from "@/api/client.ts";
 import { Shield } from "lucide-react";
 
 const AdminLogin = () => {

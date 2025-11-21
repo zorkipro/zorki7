@@ -19,16 +19,17 @@ export type {
 } from "./core/types";
 export { APIError } from "./core/ApiErrorHandler";
 export { tokenManager } from "./core/TokenManager";
-
+//
 // API Configuration
 // Если указан VITE_API_BASE_URL, используем его (работает и в dev, и в production)
 // Иначе в dev используем прокси /api, в production - https://zorki.pro/api
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
   ? import.meta.env.VITE_API_BASE_URL
   : import.meta.env.DEV
   ? "/api" // Прокси в режиме разработки
   : "https://zorki.pro/api";
-
+// const API_BASE_URL = "https://zorki.pro/api"
 // Трекер запросов для отслеживания потенциального дублирования
 interface RequestTracker {
   endpoint: string;
@@ -174,6 +175,7 @@ export async function apiRequest<T = unknown>(
         apiErrorHandler.shouldRedirect(errorData.statusCode) &&
         !skipAuthErrorHandling
       ) {
+        console.log('redirect')
         apiErrorHandler.handleAuthError(errorData);
       }
 

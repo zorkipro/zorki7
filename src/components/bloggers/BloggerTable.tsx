@@ -59,15 +59,16 @@ export const BloggerTable = ({
     return () => observer.disconnect();
   }, [onLoadMore, hasMore, isLoadingMore]);
 
-  const handleRowClick = (handle: string) => {
-    navigate(`/${normalizeUsername(handle)}`);
+  const handleRowClick = ({handle,bloggerId}:{handle: string, bloggerId?:string }) => {
+    console.log('handleRowClick',bloggerId)
+    navigate(`/${normalizeUsername(handle)}`,{ state: { bloggerId } });
   };
 
   const renderMobileCard = (blogger: Blogger) => (
       <div
         key={blogger.id}
         className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-sm transition-shadow duration-200 cursor-pointer mb-3 sm:mb-4 w-full max-w-full overflow-hidden"
-        onClick={() => handleRowClick(blogger.handle)}
+        onClick={() => handleRowClick({handle:blogger.handle, bloggerId: blogger.id})}
       >
         {/* Аватарка/имя/никнейм - главная информация */}
         <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 w-full max-w-full overflow-hidden">
@@ -77,6 +78,7 @@ export const BloggerTable = ({
             className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 aspect-square"
             username={normalizeUsername(blogger.handle)}
             gender={blogger.gender}
+            id={blogger.id}
           />
           <div className="flex-1 min-w-0 overflow-hidden">
             <h3
@@ -142,8 +144,8 @@ export const BloggerTable = ({
                 Цена поста от
               </div>
               <div className="font-bold text-gray-900 text-sm sm:text-base md:text-lg truncate">
-                {blogger.postPrice && !isNaN(blogger.postPrice) 
-                  ? `от ${formatPriceWithCurrency(blogger.postPrice)}` 
+                {blogger.postPrice && !isNaN(blogger.postPrice)
+                  ? `от ${formatPriceWithCurrency(blogger.postPrice)}`
                   : formatPriceWithCurrency(blogger.postPrice)}
               </div>
             </div>
@@ -153,8 +155,8 @@ export const BloggerTable = ({
                 Цена сториз от
               </div>
               <div className="font-bold text-gray-900 text-sm sm:text-base md:text-lg truncate">
-                {blogger.storyPrice && !isNaN(blogger.storyPrice) 
-                  ? `от ${formatPriceWithCurrency(blogger.storyPrice)}` 
+                {blogger.storyPrice && !isNaN(blogger.storyPrice)
+                  ? `от ${formatPriceWithCurrency(blogger.storyPrice)}`
                   : formatPriceWithCurrency(blogger.storyPrice)}
               </div>
             </div>
@@ -195,8 +197,8 @@ export const BloggerTable = ({
                 <TableRow
                   key={blogger.id}
                   className={`group cursor-pointer hover:bg-muted/50 transition-colors ${isLastRow ? '[&:first-child_td:first-child]:rounded-bl-lg [&:first-child_td:last-child]:rounded-br-lg' : ''}`}
-                  onClick={() => handleRowClick(blogger.handle)}
-                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleRowClick(blogger.handle)}
+                  onClick={() => handleRowClick({handle: blogger.handle, bloggerId: blogger.id})}
+                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleRowClick({handle: blogger.handle,bloggerId:blogger.id})}
                 >
                   <TableCell className="text-center font-medium sticky left-0 z-50 bg-white group-hover:bg-muted transition-colors" style={{ willChange: "transform", ...(isLastRow ? { borderBottomLeftRadius: "0.5rem" } : {}) }}>{index + 1}</TableCell>
                   <TableCell>
@@ -207,6 +209,7 @@ export const BloggerTable = ({
                         className="w-10 h-10 aspect-square"
                         username={normalizeUsername(blogger.handle)}
                         gender={blogger.gender}
+                        id={blogger.id}
                       />
                       <div>
                         <div className="font-medium text-foreground" title={blogger.name}>
@@ -228,15 +231,15 @@ export const BloggerTable = ({
                   </TableCell>
                   <TableCell className="text-center">
                     <div className="font-medium">
-                      {blogger.postPrice && !isNaN(blogger.postPrice) 
-                        ? `от ${formatPriceWithCurrency(blogger.postPrice)}` 
+                      {blogger.postPrice && !isNaN(blogger.postPrice)
+                        ? `от ${formatPriceWithCurrency(blogger.postPrice)}`
                         : formatPriceWithCurrency(blogger.postPrice)}
                     </div>
                   </TableCell>
                   <TableCell className="text-center" style={isLastRow ? { borderBottomRightRadius: "0.5rem" } : undefined}>
                     <div className="font-medium">
-                      {blogger.storyPrice && !isNaN(blogger.storyPrice) 
-                        ? `от ${formatPriceWithCurrency(blogger.storyPrice)}` 
+                      {blogger.storyPrice && !isNaN(blogger.storyPrice)
+                        ? `от ${formatPriceWithCurrency(blogger.storyPrice)}`
                         : formatPriceWithCurrency(blogger.storyPrice)}
                     </div>
                   </TableCell>

@@ -50,6 +50,7 @@ export const validateEnvironmentVariables = () => {
 
 // Кэш настройки
 export const CACHE_SETTINGS = {
+  STALE_TIME: 1000 * 60, // 1 min
   PROFILE_CACHE_DURATION: 5 * 60 * 1000, // 5 минут
   PRICING_CACHE_DURATION: 5 * 60 * 1000, // 5 минут
   SCREENSHOT_CACHE_DURATION: 10 * 60 * 1000, // 10 минут
